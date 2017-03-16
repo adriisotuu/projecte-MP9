@@ -1,0 +1,4 @@
+fitxer1.txt
+jaja.txt
+llistat.txt
+README.md
