@@ -1,14 +1,29 @@
-/bin/bash
+#!/bin/bash
 
-pandoc -o README.html \
+pandoc --output=attach.html \
 	--standalone \
-	--from markdown \
-	--to html \
-	--template=plantilla.html
-	README.md
+	--template=plantilla.html \
+	attach.md
+
+pandoc --output=build.html \
+	--standalone \
+	--template=plantilla.html \
+	build.md
+
+pandoc --output=cli.html \
+	--standalone \
+	--template=plantilla.html \
+	cli.md
 	
-valid = False
-xmllint --noout --valid README.html && valid=True
+	
+xmllint --noout --valid attach.html
+xmllint --noout --valid build.html
+xmllint --noout --valid cli.html
+
+TARGET=/home/users/inf/hisx2/isx41012376/Gitlab/static_pages/adriisotuu.github.io
+
+cp -u  *.html $TARGET
+
 
 
 
